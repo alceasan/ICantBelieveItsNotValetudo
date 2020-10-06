@@ -9,7 +9,7 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN apk add --no-cache --virtual .build-deps alpine-sdk python
+RUN apk add --no-cache --virtual .build-deps alpine-sdk python pixman
 RUN npm install
 RUN apk del .build-deps
 
