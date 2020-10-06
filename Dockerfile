@@ -1,21 +1,13 @@
+ARG BASE_IMAGE_PREFIX
+FROM ${BASE_IMAGE_PREFIX}node:8-alpine
+
+ARG ARCH
+COPY qemu-${ARCH}-static /usr/bin
+
 VOLUME /app
 WORKDIR /app
 
 COPY package.json /app
-
-# Build tools for armhf to build canvas
-RUN ARCH=$(dpkg --print-architecture) \ 
-    && if [ "$ARCH" = "armhf" ] ; then \
-    apt-get update && apt-get install -y \
-    build-essential \ 
-    libcairo2-dev \
-    libpango1.0-dev \
-    libjpeg-dev \
-    libgif-dev \
-    librsvg2-dev \
-    && rm -rf /var/lib/apt/lists/* \
-    ;  fi
-
 RUN npm install
 COPY . /app
 
