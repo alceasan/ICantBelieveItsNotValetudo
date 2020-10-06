@@ -1,5 +1,5 @@
 ARG BASE_IMAGE_PREFIX
-FROM ${BASE_IMAGE_PREFIX}node:8-alpine
+FROM ${BASE_IMAGE_PREFIX}node:14-alpine
 
 ARG ARCH
 COPY qemu-${ARCH}-static /usr/bin
