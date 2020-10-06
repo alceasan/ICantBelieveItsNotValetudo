@@ -1,5 +1,5 @@
 ARG BASE_IMAGE_PREFIX
-FROM ${BASE_IMAGE_PREFIX}node:14-alpine
+FROM ${BASE_IMAGE_PREFIX}node:14
 
 ARG ARCH
 COPY qemu-${ARCH}-static /usr/bin
@@ -9,9 +9,8 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN apk add --no-cache --virtual .build-deps alpine-sdk python pixman
+RUN apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 RUN npm install
-RUN apk del .build-deps
 
 COPY . /app
 
