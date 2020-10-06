@@ -1,5 +1,3 @@
-FROM node:14
-
 VOLUME /app
 WORKDIR /app
 
