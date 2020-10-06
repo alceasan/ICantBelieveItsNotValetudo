@@ -1,5 +1,6 @@
-FROM node:14
+FROM node:14-stretch-slim
 
+VOLUME /app
 WORKDIR /app
 
 COPY package.json /app
