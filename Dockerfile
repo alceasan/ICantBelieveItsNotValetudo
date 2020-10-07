@@ -22,8 +22,6 @@ RUN npm install
 COPY assets /app
 COPY js-modules /app
 COPY lib /app
-COPY lib /app
-COPY node-modules /app
 COPY tools /app
 COPY app.js /app
 COPY config.json /app
