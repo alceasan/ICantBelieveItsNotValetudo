@@ -19,10 +19,10 @@ RUN apt-get -q update && apt-get -y -q install \
 
 RUN npm install
 
-COPY assets /app
-COPY js-modules /app
-COPY lib /app
-COPY tools /app
+COPY assets /app/assets
+COPY js-modules /app/js-modules
+COPY lib /app/lib
+COPY tools /app/tools
 COPY app.js /app
 
 CMD ["npm", "start"]
