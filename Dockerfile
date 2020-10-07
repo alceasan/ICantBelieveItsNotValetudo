@@ -8,7 +8,7 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN apt-get update && apt-get -y install \
+RUN apt-get -q update && apt-get -y -q install \
     build-essential \ 
     libcairo2-dev \
     libpango1.0-dev \
