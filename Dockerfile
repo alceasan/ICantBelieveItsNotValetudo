@@ -24,7 +24,5 @@ COPY js-modules /app
 COPY lib /app
 COPY tools /app
 COPY app.js /app
-COPY config.json /app
-COPY package-lock.json /app
 
 CMD ["npm", "start"]
