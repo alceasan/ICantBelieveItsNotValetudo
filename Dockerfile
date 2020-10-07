@@ -1,5 +1,5 @@
 ARG BASE_IMAGE_PREFIX
-FROM ${BASE_IMAGE_PREFIX}node:14
+FROM ${BASE_IMAGE_PREFIX}node:slim
 
 ARG ARCH
 COPY qemu-${ARCH}-static /usr/bin
@@ -19,6 +19,14 @@ RUN apt-get update && apt-get -y install \
 
 RUN npm install
 
-COPY . /app
+COPY assets /app
+COPY js-modules /app
+COPY lib /app
+COPY lib /app
+COPY node-modules /app
+COPY tools /app
+COPY app.js /app
+COPY config.json /app
+COPY package-lock.json /app
 
 CMD ["npm", "start"]
